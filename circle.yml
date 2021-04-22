@@ -51,7 +51,7 @@ jobs:
       - run: docker run -it --rm --privileged tonistiigi/binfmt --install all
       - run: docker buildx create --use --name mybuilder
       - run: |
-          docker buildx build --push --platform linux/arm64,linux/amd64 -t sakshi9715/logspout:${CIRCLE_BRANCH} -t sakshi9715/logspout:latest .
+          docker buildx build --push --platform linux/arm64,linux/amd64 -t ${DOCKER_USERNAME}/logspout_test:${CIRCLE_BRANCH} -t ${DOCKER_USERNAME}/logspout_test:latest .
 workflows:
   version: 2
   build_and_publish:
